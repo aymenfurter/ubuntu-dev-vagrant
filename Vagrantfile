@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
  config.vm.provision "file", source: "eclipse.desktop", destination: "/tmp/eclipse.desktop"
  config.vm.provision "file", source: "soapui.desktop", destination: "/tmp/soapui.desktop"
  config.vm.provision "file", source: "plantuml.desktop", destination: "/tmp/plantuml.desktop"
- config.vm.provision "file", source: "complete-setup.sh", destination: "/tmp/complete-setup.sh"
+ config.vm.provision "file", source: "complete-setup.desktop", destination: "/tmp/complete-setup.desktop"
  config.vm.provision "file", source: "keyboard", destination: "/tmp/keyboard"
  config.vm.provision "file", source: "setupMenu.sh", destination: "/tmp/setupMenu.sh"
  config.vm.provision "file", source: "startSoapUI.sh", destination: "/tmp/startSoapUI.sh"
@@ -102,9 +102,11 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :shell, inline: "echo 'export PATH=/opt/eclipse:\$PATH' >> /home/#{user}/.bashrc"  
   config.vm.provision :shell, inline: "echo 'screenfetch' >> /home/#{user}/.bashrc" 
-  config.vm.provision :shell, inline: "cp /tmp/complete-setup.sh /home/#{user}/Desktop/complete-setup.sh" 
-  config.vm.provision :shell, inline: "chmod +x /home/#{user}/Desktop/complete-setup.sh" 
+  config.vm.provision :shell, inline: "mkdir /home/#{user}/Desktop" 
+  config.vm.provision :shell, inline: "cp /tmp/complete-setup.desktop /home/#{user}/Desktop/complete-setup.desktop" 
+  config.vm.provision :shell, inline: "chmod +x /home/#{user}/Desktop/complete-setup.desktop" 
   config.vm.provision :shell, inline: "chown -R #{user}:#{user} /opt/*" 
+  config.vm.provision :shell, inline: "chown -R #{user}:#{user} /home/#{user}/Desktop" 
 
   
   # remove vagrant usre
