@@ -22,6 +22,7 @@ Vagrant.configure("2") do |config|
 
  config.vm.provision :shell, inline: <<-SHELL
     apt -y update
+    apt -y upgrade
     apt -y install snapd
     apt -y install vim
     snap install postman
@@ -38,7 +39,7 @@ Vagrant.configure("2") do |config|
     cp /tmp/setupMenu.sh /opt/resetMenu.sh
 
     # Install Gnome Desktop
-    ## apt -y install ubuntu-desktop    
+    apt -y install ubuntu-desktop    
     
     # Install VMWare Guest Addons
     apt-get -y install virtualbox-guest-additions-iso
@@ -104,6 +105,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, inline: "cp /tmp/complete-setup.sh /home/#{user}/Desktop/complete-setup.sh" 
   config.vm.provision :shell, inline: "chmod +x /home/#{user}/Desktop/complete-setup.sh" 
   config.vm.provision :shell, inline: "chown -R #{user}:#{user} /opt/*" 
+
   
   # remove vagrant usre
   config.vm.provision :shell, inline: "reboot"  
