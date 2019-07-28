@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=SoapUI
+Exec=sh /opt/startSoapUI.sh
+Terminal=false
