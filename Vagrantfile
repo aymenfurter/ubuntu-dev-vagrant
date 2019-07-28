@@ -103,8 +103,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, inline: "echo 'screenfetch' >> /home/#{user}/.bashrc" 
   config.vm.provision :shell, inline: "cp /tmp/complete-setup.sh /home/#{user}/Desktop/complete-setup.sh" 
   config.vm.provision :shell, inline: "chmod +x /home/#{user}/Desktop/complete-setup.sh" 
-  config.vm.provision :shell, inline: "chown -R #{user}:#{user}" 
-
+  config.vm.provision :shell, inline: "chown -R #{user}:#{user} /opt/*" 
   
   # remove vagrant usre
   config.vm.provision :shell, inline: "reboot"  
