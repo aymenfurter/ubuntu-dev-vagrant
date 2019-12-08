@@ -1,0 +1,12 @@
+VteTerminal,
+TerminalScreen,
+vte-terminal {
+    padding: 20px 20px 20px 20px;
+    -VteTerminal-inner-border: 20px 20px 20px 20px;
+}
+
+.scrollbar.vertical slider,
+scrollbar.vertical slider {
+    min-width: 0px;
+    border: 0px;
+}
